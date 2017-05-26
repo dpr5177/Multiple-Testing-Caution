@@ -48,7 +48,7 @@ dashboardPage(skin="blue",
                                        #" H0: the mean delivery time is 30 minutes for a pizza company",br(),
                                        #" H1: the mean delivery time is greater than 30 minutes",br(),
                                        #" Now suppose you run a test for significance every day.",br(),
-                                       #"Does the null hypothesis provide a reasonable explanation for the data?"
+                                       #"Does the null hypothesis provide a reasonable explanation for the data?",
                                        
                                        ),
                                    numericInput(inputId = "days", "See how the plot changes when you change how many significance tests you are running", min = 1, max = 200, val = 130)
