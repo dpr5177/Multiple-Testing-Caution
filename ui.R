@@ -42,7 +42,11 @@ dashboardPage(skin="blue",
                             column(6,
                                    h3("The Problem: **use a real situation here with actual data**"),
                                    box(width =12,background = "blue",
-                                       "Example situation:", br(),br()
+                                       "Example situation:", br(),br(),
+                                       "When the null hypothesis is true there is a small chance of getting a low p-value and declaring the result highly significant (from the definition of the p-value).  So if you look at a lot significance tests, finding one that is highly significant is expected."
+                                       
+                                       
+                                       #This part is the example for the first way I tried to do it.
                                        #"A pizza store claims their average delivery time is 30 minutes and a standard deviation of 4 minutes, you think the true mean is different.",br(),
                                        #" You collect 40 delivery times from every day for 130 days",br(),
                                        #" H0: the mean delivery time is 30 minutes for a pizza company",br(),
@@ -51,13 +55,15 @@ dashboardPage(skin="blue",
                                        #"Does the null hypothesis provide a reasonable explanation for the data?",
                                        
                                        ),
-                                   numericInput(inputId = "days", "See how the plot changes when you change how many significance tests you are running", min = 1, max = 200, val = 130)
+                                   h3("Notice how there tend to be more 'significant' pvalues on the plot when you increase the number of tests"),
+                                   br(),
+                                   numericInput(inputId = "days", "Adjust how many significance tests you are running here:", min = 0, max = 500, val = 5,step = 10)
                                    
                                    ),
                             column(6,
                                    h3("This is the data"),
                                    plotOutput("p.plot"),
-                                   h4("The points above the green line on the plot are all pvalues you might consider high. In other words the points above the greeen line represent days when you would conclude the null hypothesis provides a reasonable explanation for the data")
+                                   h4("The points above the green line on the plot are all pvalues you might consider high. In other words the points above the greeen line represent the tests where you might conclude the null hypothesis provides a reasonable explanation for the data")
                                    )
                             
                           )
