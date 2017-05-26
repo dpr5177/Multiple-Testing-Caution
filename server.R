@@ -14,19 +14,19 @@ shinyServer(function(input, output,session) {
     z = rnorm(d,mean = 30, sd = 4)
     z2 = numeric(d)
     for(q in 1:d){
-      #z2[q] = (z[q]- 30)/4/sqrt(30)
-      z2[q] = z[q]
+      z2[q] = (z[q]- 30)/4
+      #z2[q] = z[q]
     }
     p = numeric(d)
     
     for(c in 1:d)
     {
       if(z[c]<=0){
-        p[c] = pnorm(z2[c], mean = 30, sd =4)
+        p[c] = pnorm(z2[c], mean = 0, sd =1,lower.tail = TRUE)
         
       }
       else{
-        p[c] = pnorm(z2[c],mean = 30, sd = 4, lower.tail = FALSE)
+        p[c] = pnorm(z2[c],mean = 0, sd = 1, lower.tail = FALSE)
       }
     }
     p = p
@@ -36,7 +36,7 @@ shinyServer(function(input, output,session) {
   output$p.plot<-renderPlot({
     p = func()
     plot(p,ylim = c(0,1))
-    abline(h = 0.05, col = "green", lwd = 2)
+    abline(h = 0.04, col = "green", lwd = 2)
   })
   
   
