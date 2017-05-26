@@ -39,11 +39,25 @@ dashboardPage(skin="blue",
                           fluidRow(
                             #Include LaTeX functioality although I don't think I used it for this
                             withMathJax(),
-                            column(12,
-                                   h4("Here is some information")
+                            column(6,
+                                   h3("The Problem: **use a real situation here with actual data**"),
+                                   box(width =12,background = "blue",
+                                       "Example situation:", br(),br(),
+                                       "A pizza store claims their average delivery time is 30 minutes and a standard deviation of 4 minutes, you think the true meanis longer.",br(),
+                                       " You collect 30 times from every day for 130 days",br(),
+                                       " H0: the mean delivery time is 30 minutes for a pizza company",br(),
+                                       " H1: the mean delivery time is greater than 30 minutes",br(),
+                                       " Now suppose you run a test for significance every day.",br(),
+                                       "Does the null hypothesis provide a reasonable explanation for the data?"
+                                       
+                                       ),
+                                   numericInput(inputId = "days", "See how the plot changes when you change how many significance tests you are running", min = 1, max = 200, val = 130)
                                    
-                                   
-                                   
+                                   ),
+                            column(6,
+                                   h3("This is the data"),
+                                   plotOutput("p.plot"),
+                                   h4("The points above the green line on the plot are all pvalues you might consider high. In other words the points above the greeen line represent days when you would conclude the null hypothesis provides a reasonable explanation for the data")
                                    )
                             
                           )
