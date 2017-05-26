@@ -59,7 +59,7 @@ shinyServer(function(input, output,session) {
   #Plot for the first idea
   output$p.plot<-renderPlot({
     p = func2()
-    plot(p,ylim = c(0,1))
+    plot(p,ylim = c(0,1), ylab = "p-value",main = "p-values of multiple tests", xlab = "Test", xlim = c(0,500))
     abline(h = 0.05, col = "green", lwd = 2)
   })
   
