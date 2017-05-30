@@ -7,34 +7,7 @@ shinyServer(function(input, output,session) {
   days <-reactive({
     return(input$days)
   })
-  
-  #First thought on simulating it
-  #function to simulate, need to find a better way to do this
-  func <- reactive({
-    d = days()
-    z = rnorm(d,mean = 30, sd = 4)
-    z2 = numeric(d)
-    for(q in 1:d){
-      z2[q] = (z[q]- 30)/4
-      #z2[q] = z[q]
-    }
-    p = numeric(d)
-    
-    for(c in 1:d)
-    {
-      if(z[c]<=0){
-        p[c] = pnorm(z2[c], mean = 0, sd =1,lower.tail = TRUE)
-        
-      }
-      else{
-        p[c] = pnorm(z2[c],mean = 0, sd = 1, lower.tail = FALSE)
-      }
-    }
-    p = p
-  })
-  
-  
-  
+
   #I think this way is better
   #Second thought on simulating this
   #Binomial might not be the best

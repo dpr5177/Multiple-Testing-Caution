@@ -44,16 +44,7 @@ dashboardPage(skin="blue",
                                    box(width =12,background = "blue",
                                        "Example situation:", br(),br(),
                                        "When the null hypothesis is true there is a small chance of getting a low p-value and declaring the result highly significant (from the definition of the p-value).  So if you look at a lot significance tests, finding one that is highly significant is expected."
-                                       
-                                       
-                                       #This part is the example for the first way I tried to do it.
-                                       #"A pizza store claims their average delivery time is 30 minutes and a standard deviation of 4 minutes, you think the true mean is different.",br(),
-                                       #" You collect 40 delivery times from every day for 130 days",br(),
-                                       #" H0: the mean delivery time is 30 minutes for a pizza company",br(),
-                                       #" H1: the mean delivery time is greater than 30 minutes",br(),
-                                       #" Now suppose you run a test for significance every day.",br(),
-                                       #"Does the null hypothesis provide a reasonable explanation for the data?",
-                                       
+            
                                        ),
                                    h3("Notice how there tend to be more 'significant' pvalues on the plot when you increase the number of tests"),
                                    br(),
